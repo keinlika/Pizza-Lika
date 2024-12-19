@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pizza Lika | Order</title>
+    <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="pizza.css">
+    <script src="pizza.js"></script>
+</head>
+
+<body onload="document.getElementById('firstName').focus()">
+    <div id="content">
+        <h1>Order Here</h1>
+        <div style="margin: auto; width: 85%;">
+            <form id="menu" onsubmit="return validateForm()" action="pizza.php" method="GET" onreset="clearForm()">
+                <br><label>First Name: </label><input id="firstName" class="textInput" type="text" name="name" placeholder="First Name" onfocus="setSelect('firstName')" required> <br>
+                <br><label>Last Name:</label> <input id="lastName" class="textInput" type="text" name="last-name" placeholder="Last Name" onfocus="setSelect('lastName')" required> <br>
+                <br><label>Address:</label><br>
+                <textarea id="address" class="textInput" name="address" rows="4" style="width: 55%;" placeholder="Street, City, State, ZIP" onfocus="setSelect('address')" required></textarea><br>
+                <span id="errorPhone"></span>
+                <br><label>Phone:</label> <input id="phone" class="textInput" type="text" name="phone" placeholder="xxx-xxx-xxxx" maxlength="12" size="13" onchange="checkPhone()" onfocus="setSelect('phone')" required><br>
+                <hr>
+                <span id="errorTotal"></span>
+                <div style="text-align: left;">
+                    <input type="checkbox" class="pizzas" name="pizzas[]" value="Pepperoni-4.30" onchange="computeTotal()">
+                    Pepperoni Pizza $4.30<br>
+                    <input type="checkbox" class="pizzas" name="pizzas[]" value="Buffalo-5.50" onchange="computeTotal()">
+                    Buffalo Pizza $5.50<br>
+                    <input type="checkbox" class="pizzas" name="pizzas[]" value="Hawaiian-4.80" onchange="computeTotal()">
+                    Hawaiian Pizza $4.80<br>
+                    <input type="checkbox" class="pizzas" name="pizzas[]" value="Spinach-6.40" onchange="computeTotal()">
+                    Spinach Pizza $6.40<br>
+                </div>
+                <label style="color: red;">Total:</label> <input id="total" type="text" name="total" size="6" readonly> <br>
+                <span id="errorCardType"></span>
+                <br>
+                <input onchange="clearCCTypeError()" type="radio" name="cc-type" value="Visa"> Visa
+                <input onchange="clearCCTypeError()" type="radio" name="cc-type" value="Mastercard"> Mastercard
+                <input onchange="clearCCTypeError()" type="radio" name="cc-type" value="Discover"> Discover
+                <br><span id="errorCardNumber"></span>
+                <br><label>Credit Card Number:</label> <input class="textInput" id="cc-nr" type="text" name="cc-nr" placeholder="xxxx-xxxx-xxxx-xxxx" maxlength="19" size="19" onchange="checkCardNumber()" required><br>
+                <span id="errorExpiration"></span>
+                <br><label>Expiration:</label> <input class="textInput" id="expiration" type="text" name="cc-exp" placeholder="mm/yyyy" maxlength="7" size="7" onchange="checkDate()" required> <br>
+                <br>
+                <button type="reset" value="Reset" class="button">Clear Form</button>
+                <button type="submit" value="Calculate" class="button">Calculate</button>
+            </form>
+        </div>
+        <p style="font-size: 15px;">&copy; 2024 by Kein Lika</p>
+    </div>
+</body>
+
+</html>
