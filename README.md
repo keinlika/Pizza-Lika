@@ -6,8 +6,6 @@ As a software engineer, my goal with this project was to build a dynamic and int
 
 This project not only helped me gain hands-on experience with these technologies, but also reinforced the importance of form validation, dynamic content updates, and responsive design.
 
-[Software Demo Video]()
-
 ## Development Environment
 
 This software was developed using the following tools and technologies:
